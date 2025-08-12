@@ -1,0 +1,53 @@
+#!/bin/bash
+
+#
+# Install Geist Mono font
+#
+
+shopt -s globstar # Enable the '**' syntax for the move below
+
+TEMP_DIR=$(mktemp -d) # Create a temporary directory
+FONT_DIR="${HOME}/.local/share/fonts/geistmono"
+
+echo "Downloading Geist Mono font"
+
+curl -L https://github.com/vercel/geist-font/releases/download/1.5.0/geist-font-1.5.0.zip -o "$TEMP_DIR/geist-font.zip"
+
+echo "Downloaded Geist Mono font"
+
+unzip "$TEMP_DIR/geist-font.zip" -d "$TEMP_DIR"
+
+if [[ ! -d "$FONT_DIR" ]]; then
+	mkdir -p "$FONT_DIR"
+fi
+
+mv "$TEMP_DIR"/**/*\[wght\].ttf ~/.local/share/fonts/geistmono/
+
+rm -rf "$TEMP_DIR"
+
+echo
+echo "Installed Geist Mono font into ~/.local/share/fonts/geistmono"
+fc-cache
+
+#
+# Install Mise and tools
+#
+
+curl https://mise.run | sh
+
+mise use -g aqua:dbrgn/tealdeer \
+	aqua:fish-shell/fish-shell \
+	bun \
+	cargo-binstall \
+	cargo:starship \
+	node@22 \
+	usage \
+	yadm
+
+mise settings set npm.bun true
+mise settings set cargo.binstall true
+
+mise completion fish >~/.config/fish/completions/mise.fish
+
+# Starship Preset
+starship preset nerd-font-symbols -o ~/.config/starship.toml
