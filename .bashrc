@@ -31,6 +31,9 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/plat
 export EDITOR=nvim
 export VISUAL=nvim
 
+# Use neovim as manpager
+export MANPAGER='nvim +Man!'
+
 # Mise
 eval "$(/home/sebastian/.local/bin/mise activate bash)"
 
