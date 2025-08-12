@@ -1,0 +1,13 @@
+font-family = "Geist Mono"
+
+theme = "tokyonight_night"
+
+adw-toolbar-style = flat
+gtk-wide-tabs = false
+
+window-decoration = false
+window-theme = ghostty
+
+background-opacity = 0.95
+
+# vim: ft=conf
