@@ -69,4 +69,7 @@ git config --global help.autocorrect prompt
 git config --global merge.conflictstyle zdiff3
 
 read -rp "Please enter your email for git: " EMAIL
-git config --global user.email "$EMAIL"
+
+if [[ -n "$email" ]]; then
+	git config --global user.email "$EMAIL"
+fi
