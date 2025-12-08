@@ -1,13 +1,16 @@
-font-family = "Geist Mono"
+font-family = Geist Mono Medium
 
-theme = "tokyonight_night"
+background-opacity = 0.9
+background-blur = true
+background-opacity-cells = true
 
-adw-toolbar-style = flat
+theme = TokyoNight Night
+
+gtk-tabs-location = bottom
 gtk-wide-tabs = false
-
 window-decoration = false
 window-theme = ghostty
 
-background-opacity = 0.95
+keybind = global:super+ß=toggle_quick_terminal
 
 # vim: ft=conf
