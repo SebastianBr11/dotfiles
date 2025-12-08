@@ -42,6 +42,11 @@ export MANPAGER='nvim +Man!'
 # Mise
 eval "$(/home/sebastian/.local/bin/mise activate bash)"
 
+# Homebrew
+if [ -d /home/linuxbrew/.linuxbrew/bin ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # Aliases
 alias nvimc="cd ~/.config/nvim && nvim"
 
