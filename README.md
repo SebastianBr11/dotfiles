@@ -17,5 +17,5 @@ mise use -g yadm
 Get the dotfiles
 
 ```shell
-yadm clone https://github.com/SebastianBr11/dotfiles/
+yadm clone git@github.com:SebastianBr11/dotfiles.git
 ```
