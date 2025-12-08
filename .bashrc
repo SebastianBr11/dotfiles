@@ -39,6 +39,11 @@ export VISUAL=nvim
 # Use neovim as manpager
 export MANPAGER='nvim +Man!'
 
+# 1Password SSH Agent
+if [ -f ~/.1password/agent.sock ]; then
+    export SSH_AUTH_SOCK=~/.1password/agent.sock
+fi
+
 # Mise
 eval "$(/home/sebastian/.local/bin/mise activate bash)"
 
