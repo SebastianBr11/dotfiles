@@ -21,7 +21,9 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-. "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo" ]; then
+    . "$HOME/.cargo/env"
+fi
 
 # Android
 export ANDROID_HOME="$HOME/Android/Sdk"
