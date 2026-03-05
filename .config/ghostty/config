@@ -1,3 +1,5 @@
+# vim: ft=conf
+
 font-family = Geist Mono Medium
 
 background-opacity = 0.9
@@ -13,4 +15,4 @@ window-theme = ghostty
 
 keybind = global:super+ß=toggle_quick_terminal
 
-# vim: ft=conf
+custom-shader = shaders/cursor_warp.glsl
