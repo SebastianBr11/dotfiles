@@ -25,19 +25,10 @@ if [ -d "$HOME/.cargo" ]; then
     . "$HOME/.cargo/env"
 fi
 
-export CHROME_BIN="chromium-browser"
-
 # Android
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
-
-# Use neovim as the default editor.
-export EDITOR=nvim
-export VISUAL=nvim
-
-# Use neovim as manpager
-export MANPAGER='nvim +Man!'
 
 # 1Password SSH Agent
 if [ -f ~/.1password/agent.sock ]; then
@@ -52,8 +43,7 @@ if [ -d /home/linuxbrew/.linuxbrew/bin ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# Aliases
-alias nvimc="cd ~/.config/nvim && nvim"
+source .shell_common.conf
 
 # Drop into fish (taken from https://wiki.archlinux.org/title/Fish#Modify_.bashrc_to_drop_into_fish)
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]; then
