@@ -44,8 +44,7 @@ mise use -g aqua:dbrgn/tealdeer \
 	usage \
 	yadm
 
-mise settings set npm.bun true
-mise settings set cargo.binstall true
+mise settings set npm.package_manager bun
 
 mise completion fish >~/.config/fish/completions/mise.fish
 
