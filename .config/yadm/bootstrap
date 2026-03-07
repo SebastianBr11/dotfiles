@@ -73,3 +73,9 @@ read -rp "Please enter your email for git: " EMAIL
 if [[ -n "$email" ]]; then
 	git config --global user.email "$EMAIL"
 fi
+
+echo "source ./.shell_common.conf" >>~/.bashrc
+echo "source ./.bash_config.sh" >>~/.bashrc
+
+echo "source ~/.shell_common.conf" >>~/.config/fish/config.fish
+echo "source ~/.fish_config.fish" >>~/.config/fish/config.fish
