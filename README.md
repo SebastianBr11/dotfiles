@@ -2,16 +2,16 @@
 
 ## Getting Started
 
-Get Mise
+Get Brew
 
 ```shell
-curl https://mise.run | sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 Get yadm
 
 ```shell
-mise use -g yadm
+brew install yadm
 ```
 
 Get the dotfiles

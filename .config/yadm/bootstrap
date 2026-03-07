@@ -1,55 +1,41 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-#
-# Install Geist Mono font
-#
+echo "Installing from Brewfile"
+cd ~
+brew bundle
+cd -
+echo "Installed from Brewfile"
 
-shopt -s globstar # Enable the '**' syntax for the move below
+mise_packages=(
+	"bun"
+	"cargo-binstall"
+	"go"
+	"node@lts"
+	"rust"
+	"starship"
+	"uv"
+)
 
-TEMP_DIR=$(mktemp -d) # Create a temporary directory
-FONT_DIR="${HOME}/.local/share/fonts/geistmono"
+mise_install_packages=$(printf "%s\n" "${mise_packages[@]}" | fzf --header "Select packages to install using mise" --multi --preview-window right --preview "mise tool {}")
 
-echo "Downloading Geist Mono font"
+if [ -n "$mise_install_packages" ]; then
+	install_command=$(echo "$mise_install_packages" | tr '\n' ' ')
 
-curl -L https://github.com/vercel/geist-font/releases/download/1.5.0/geist-font-1.5.0.zip -o "$TEMP_DIR/geist-font.zip"
+	echo "Installing: $install_command"
+	mise use -g $install_command
 
-echo "Downloaded Geist Mono font"
-
-unzip "$TEMP_DIR/geist-font.zip" -d "$TEMP_DIR"
-
-if [[ ! -d "$FONT_DIR" ]]; then
-	mkdir -p "$FONT_DIR"
+else
+	echo "No package selected."
 fi
-
-mv "$TEMP_DIR"/**/*\[wght\].ttf ~/.local/share/fonts/geistmono/
-
-rm -rf "$TEMP_DIR"
-
-echo
-echo "Installed Geist Mono font into ~/.local/share/fonts/geistmono"
-fc-cache
-
-#
-# Install Mise and tools
-#
-
-curl https://mise.run | sh
-
-mise use -g aqua:dbrgn/tealdeer \
-	aqua:fish-shell/fish-shell \
-	bun \
-	cargo-binstall \
-	cargo:starship \
-	node@22 \
-	usage \
-	yadm
 
 mise settings set npm.package_manager bun
 
 mise completion fish >~/.config/fish/completions/mise.fish
 
-# Starship Preset
-starship preset nerd-font-symbols -o ~/.config/starship.toml
+if [[ ! -f ~/.config/starship.toml ]]; then
+	starship preset nerd-font-symbols -o ~/.config/starship.toml
+	echo "Setup starship preset"
+fi
 
 #
 # Setup Git
