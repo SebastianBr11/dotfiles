@@ -14,5 +14,6 @@ window-decoration = false
 window-theme = ghostty
 
 keybind = global:super+ß=toggle_quick_terminal
+command = fish
 
 custom-shader = shaders/cursor_warp.glsl
