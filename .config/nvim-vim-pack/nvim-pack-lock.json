@@ -58,6 +58,10 @@
       "rev": "e06745228600a585b88726fc9fba44a373c15a47",
       "src": "https://github.com/NeogitOrg/neogit"
     },
+    "nvim-eslint": {
+      "rev": "3c893af4152a417742e6ce96d9468b3f26359006",
+      "src": "https://github.com/esmuellert/nvim-eslint"
+    },
     "nvim-lsp-endhints": {
       "rev": "a86e7ca7a92ef003008d7eb5d153c63bcc89f79c",
       "src": "https://github.com/chrisgrieser/nvim-lsp-endhints"
