@@ -94,6 +94,10 @@
       "rev": "ad58747b955d0743ccfd56e97da1a4c1fac89f58",
       "src": "https://github.com/rachartier/tiny-cmdline.nvim"
     },
+    "todo-comments.nvim": {
+      "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
+      "src": "https://github.com/folke/todo-comments.nvim"
+    },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
