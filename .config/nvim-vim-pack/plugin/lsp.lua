@@ -2,6 +2,7 @@ vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/chrisgrieser/nvim-lsp-endhints",
 	"https://github.com/esmuellert/nvim-eslint",
+	"https://github.com/b0o/SchemaStore.nvim",
 })
 
 require("mason-lspconfig").setup({
