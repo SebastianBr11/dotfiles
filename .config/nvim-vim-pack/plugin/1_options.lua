@@ -39,6 +39,25 @@ vim.o.winborder = "single"
 
 vim.o.cursorlineopt = "screenline,number"
 
+vim.diagnostic.config({
+	severity_sort = true,
+	float = { border = "rounded", source = "if_many" },
+	signs = vim.g.have_nerd_font and {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "󰅚 ",
+			[vim.diagnostic.severity.WARN] = "󰀪 ",
+			[vim.diagnostic.severity.INFO] = "󰋽 ",
+			[vim.diagnostic.severity.HINT] = "󰌶 ",
+		},
+	} or {},
+	virtual_text = {
+		source = "if_many",
+		spacing = 2,
+	},
+	-- Display multiline diagnostics as virtual lines
+	-- virtual_lines = true,
+})
+
 -- Editing ====================================================================
 vim.o.autoindent = true
 vim.o.expandtab = true
