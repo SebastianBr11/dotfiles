@@ -6,6 +6,7 @@ end)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.o.confirm = false
 vim.o.mouse = "a"
 vim.o.switchbuf = "usetab"
 vim.o.undofile = true
@@ -39,10 +40,12 @@ vim.o.winborder = "single"
 
 vim.o.cursorlineopt = "screenline,number"
 
+vim.o.tabclose = "uselast"
+
 vim.diagnostic.config({
 	severity_sort = true,
 	float = { border = "rounded", source = "if_many" },
-	signs = vim.g.have_nerd_font and {
+	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = "󰅚 ",
 			[vim.diagnostic.severity.WARN] = "󰀪 ",
@@ -80,3 +83,13 @@ vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
 
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
+
+vim.o.shell = "fish"
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.hl.on_yank({ timeout = 200 })
+	end,
+})
