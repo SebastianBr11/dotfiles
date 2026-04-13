@@ -58,6 +58,10 @@
       "rev": "e06745228600a585b88726fc9fba44a373c15a47",
       "src": "https://github.com/NeogitOrg/neogit"
     },
+    "nvim-autopairs": {
+      "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
     "nvim-eslint": {
       "rev": "3c893af4152a417742e6ce96d9468b3f26359006",
       "src": "https://github.com/esmuellert/nvim-eslint"
