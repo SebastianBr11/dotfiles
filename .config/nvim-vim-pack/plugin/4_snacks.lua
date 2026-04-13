@@ -1,0 +1,80 @@
+vim.pack.add({ "https://github.com/folke/snacks.nvim" })
+
+require("snacks").setup({
+	bigfile = {},
+	gitbrowse = {},
+	image = {},
+	---@class snacks.indent.Config
+	indent = {
+		chunk = {
+			enabled = true,
+		},
+	},
+	notifier = {},
+	picker = {},
+	scratch = {},
+})
+
+vim.keymap.set("n", "<leader>sh", function()
+	Snacks.picker.help()
+end, { desc = "[S]earch [H]elp" })
+vim.keymap.set("n", "<leader>sk", function()
+	Snacks.picker.keymaps()
+end, { desc = "[S]earch [K]eymaps" })
+vim.keymap.set("n", "<leader>sf", function()
+	Snacks.picker.smart()
+end, { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<leader>ss", function()
+	Snacks.picker.pickers()
+end, { desc = "[S]earch [S]elect Snacks" })
+vim.keymap.set({ "n", "x" }, "<leader>sw", function()
+	Snacks.picker.grep_word()
+end, { desc = "[S]earch current [W]ord" })
+vim.keymap.set("n", "<leader>sg", function()
+	Snacks.picker.grep()
+end, { desc = "[S]earch by [G]rep" })
+vim.keymap.set("n", "<leader>sd", function()
+	Snacks.picker.diagnostics()
+end, { desc = "[S]earch [D]iagnostics" })
+vim.keymap.set("n", "<leader>sr", function()
+	Snacks.picker.resume()
+end, { desc = "[S]earch [R]esume" })
+vim.keymap.set("n", "<leader>s.", function()
+	Snacks.picker.recent()
+end, { desc = '[S]earch Recent Files ("." for repeat)' })
+vim.keymap.set("n", "<leader><leader>", function()
+	Snacks.picker.buffers()
+end, { desc = "[ ] Find existing buffers" })
+vim.keymap.set("n", "<leader>/", function()
+	Snacks.picker.lines({})
+end, { desc = "[/] Fuzzily search in current buffer}" })
+vim.keymap.set("n", "<leader>sb", function()
+	Snacks.picker.lines()
+end, { desc = "[S]earch [B]uffer Lines" })
+vim.keymap.set("n", "<leader>s/", function()
+	Snacks.picker.grep_buffers()
+end, { desc = "[S]earch [/] in Open Files" })
+vim.keymap.set("n", "<leader>sn", function()
+	Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+end, { desc = "[S]earch [N]eovim files" })
+vim.keymap.set("n", "<leader>gl", function()
+	Snacks.picker.git_log({ confirm = "git_show" })
+end, { desc = "Git Log" })
+vim.keymap.set("n", "<leader>gb", function()
+	Snacks.gitbrowse.open()
+end, { desc = "[G]it [B]rowse" })
+vim.keymap.set("n", "<leader>gc", function()
+	Snacks.picker.git_branches()
+end, { desc = "[G]it [C]heckout" })
+vim.keymap.set("n", "<leader>gd", function()
+	Snacks.picker.git_diff()
+end, { desc = "[G]it [D]iff" })
+vim.keymap.set("n", "<leader>gg", function()
+	Snacks.picker.git_grep()
+end, { desc = "[G]it [G]rep" })
+vim.keymap.set("n", "z=", function()
+	Snacks.picker.spelling()
+end, { desc = "Spelling suggestions" })
+vim.keymap.set("n", "<leader>sc", function()
+	Snacks.picker.commands()
+end, { desc = "[S]earch [C]ommands" })
