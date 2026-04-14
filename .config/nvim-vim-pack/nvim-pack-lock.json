@@ -82,6 +82,18 @@
       "rev": "67c15fd14037778644371487fc68855b530ccd7d",
       "src": "https://github.com/chrisgrieser/nvim-origami"
     },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-treesitter-context": {
+      "rev": "b0c45cefe2c8f7b55fc46f34e563bc428ef99636",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
+    "nvim_context_vt": {
+      "rev": "fadbd9e57af72f6df3dd33df32ee733aa01cdbc0",
+      "src": "https://github.com/andersevenrud/nvim_context_vt"
+    },
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
