@@ -74,7 +74,6 @@ vim.o.shiftwidth = 2
 vim.o.smartcase = true
 vim.o.smartindent = true
 vim.o.spelloptions = "camel"
-vim.o.tabstop = 2
 vim.o.virtualedit = "block"
 
 vim.o.iskeyword = "@,48-57,_,192-255,-"
