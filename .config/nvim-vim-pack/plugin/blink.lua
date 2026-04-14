@@ -18,7 +18,7 @@ require("blink.cmp").setup({
 		nerd_font_variant = "normal",
 	},
 	completion = {
-		documentation = { auto_show = true, window = { border = "rounded" } },
+		documentation = { window = { border = "rounded" } },
 		menu = {
 			draw = {
 				-- We don't need label_description now because label and label_description are already
