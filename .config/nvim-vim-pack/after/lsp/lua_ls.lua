@@ -40,6 +40,7 @@ return {
 					location("snacks.nvim"),
 					location("nvim-lspconfig"),
 					location("SchemaStore.nvim"),
+					location("overseer.nvim"),
 					-- '${3rd}/busted/library',
 				},
 			},
