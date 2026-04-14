@@ -8,6 +8,7 @@ Config.lsp_servers_table = {
 	html = "html",
 	jsonls = "jsonls",
 	lua_ls = "lua_ls",
+	rumdl = "rumdl",
 	svelte = "svelte",
 	tailwindcss = "tailwindcss",
 	tombi = "tombi",
@@ -16,13 +17,11 @@ Config.lsp_servers_table = {
 }
 Config.formatters_table = {
 	prettierd = "prettierd",
-	rumdl = "rumdl",
 	stylua = "stylua",
 	shfmt = "shfmt",
 }
 Config.linters_table = {
 	hadolint = "hadolint",
-	rumdl = "rumdl",
 }
 
 Config.lsp_servers = vim.tbl_keys(Config.lsp_servers_table)
