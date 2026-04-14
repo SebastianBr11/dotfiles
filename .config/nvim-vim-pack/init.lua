@@ -6,6 +6,7 @@ Config.lsp_servers_table = {
 	css_variables = "css_variables",
 	cssls = "cssls",
 	html = "html",
+	jsonls = "jsonls",
 	lua_ls = "lua_ls",
 	svelte = "svelte",
 	tailwindcss = "tailwindcss",

@@ -39,6 +39,7 @@ return {
 					"${3rd}/luv/library",
 					location("snacks.nvim"),
 					location("nvim-lspconfig"),
+					location("SchemaStore.nvim"),
 					-- '${3rd}/busted/library',
 				},
 			},
