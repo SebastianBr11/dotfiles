@@ -42,6 +42,10 @@
       "rev": "84a4987ff36798c2fc1169cbaff67960aed9776f",
       "src": "https://github.com/NMAC427/guess-indent.nvim"
     },
+    "haunt.nvim": {
+      "rev": "666d83868bac8b38f1dc765d9da6eca4d92c826f",
+      "src": "https://github.com/TheNoeTrevino/haunt.nvim"
+    },
     "kanagawa.nvim": {
       "rev": "aef7f5cec0a40dbe7f3304214850c472e2264b10",
       "src": "https://github.com/rebelot/kanagawa.nvim"
