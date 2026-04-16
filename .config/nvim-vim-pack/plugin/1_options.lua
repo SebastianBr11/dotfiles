@@ -8,7 +8,6 @@ vim.g.maplocalleader = " "
 
 vim.o.confirm = false
 vim.o.mouse = "a"
-vim.o.switchbuf = "usetab"
 vim.o.undofile = true
 
 -- Enable all filetype plugins and syntax (if not enabled, for better startup)
