@@ -41,6 +41,7 @@ return {
 					location("nvim-lspconfig"),
 					location("SchemaStore.nvim"),
 					location("overseer.nvim"),
+					location("conform.nvim"),
 					-- '${3rd}/busted/library',
 				},
 			},

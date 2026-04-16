@@ -1,7 +1,7 @@
 vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
 
 vim.keymap.set("n", "<leader>f", function()
-	require("conform").format({ async = true, lsp_format = "fallback" })
+	require("conform").format({ async = true })
 end, { desc = "[F]ormat buffer" })
 
 require("conform").setup({
@@ -16,7 +16,6 @@ require("conform").setup({
 		else
 			return {
 				timeout_ms = 1500,
-				lsp_format = "fallback",
 			}
 		end
 	end,
@@ -25,6 +24,9 @@ require("conform").setup({
 		["biome-check"] = {
 			require_cwd = true,
 		},
+	},
+	default_format_opts = {
+		lsp_format = "fallback",
 	},
 	formatters_by_ft = {
 		-- Webdev
