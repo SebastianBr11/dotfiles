@@ -9,6 +9,7 @@ Config.lsp_servers_table = {
 	jsonls = "jsonls",
 	lua_ls = "lua_ls",
 	rumdl = "rumdl",
+	stylua = "stylua",
 	svelte = "svelte",
 	tailwindcss = "tailwindcss",
 	tombi = "tombi",
@@ -17,7 +18,6 @@ Config.lsp_servers_table = {
 }
 Config.formatters_table = {
 	prettierd = "prettierd",
-	stylua = "stylua",
 	shfmt = "shfmt",
 }
 Config.linters_table = {
