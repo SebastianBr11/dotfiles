@@ -19,3 +19,10 @@ Get the dotfiles
 ```shell
 yadm clone git@github.com:SebastianBr11/dotfiles.git
 ```
+
+## Conditional Git Settings
+
+```gitconfig
+[includeIf "gitdir:~/Dev/"]
+	path = ~/Dev/.gitconfig
+```
