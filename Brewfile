@@ -1,3 +1,5 @@
 cask "font-geist-mono"
 brew "mise"
 brew "tree-sitter-cli"
+brew "ripgrep"
+brew "fd"
