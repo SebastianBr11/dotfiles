@@ -8,6 +8,10 @@ input {
   }
 }
 
+binds {
+  Mod+B { spawn "zen-browser"; }
+}
+
 window-rule {
   match app-id="^foot$"
 
