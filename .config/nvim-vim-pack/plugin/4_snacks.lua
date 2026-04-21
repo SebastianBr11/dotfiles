@@ -15,6 +15,10 @@ require("snacks").setup({
 	scratch = {},
 })
 
+vim.keymap.set("n", "<leader>nd", function()
+	Snacks.notifier.hide()
+end)
+
 vim.keymap.set("n", "<leader>sh", function()
 	Snacks.picker.help()
 end, { desc = "[S]earch [H]elp" })
