@@ -28,8 +28,6 @@ else
 	echo "No package selected."
 fi
 
-mise settings set npm.package_manager bun
-
 echo "source ~/.shell_common.conf" >>~/.bashrc
 echo "source ~/.bash_config.sh" >>~/.bashrc
 
