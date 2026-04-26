@@ -1,0 +1,20 @@
+[user]
+	name = Sebastian Breit
+	email =  41546861+SebastianBr11@users.noreply.github.com
+[rerere]
+	enabled = true
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+	followTags = true
+[core]
+	editor = nvim
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+[help]
+	autocorrect = prompt
+[merge]
+	conflictstyle = zdiff3

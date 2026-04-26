@@ -35,28 +35,6 @@ if [[ ! -f ~/.config/starship.toml ]]; then
 	echo "Setup starship preset"
 fi
 
-#
-# Setup Git
-#
-
-git config --global user.name "Sebastian Breit"
-git config --global rerere.enabled true
-git config --global init.defaultBranch main
-git config --global push.autoSetupRemote true
-git config --global push.followTags true
-git config --global core.editor nvim
-git config --global diff.algorithm histogram
-git config --global diff.colorMoved plain
-git config --global diff.mnemonicPrefix true
-git config --global help.autocorrect prompt
-git config --global merge.conflictstyle zdiff3
-
-read -rp "Please enter your email for git: " EMAIL
-
-if [[ -n "$email" ]]; then
-	git config --global user.email "$EMAIL"
-fi
-
 echo "source ~/.shell_common.conf" >>~/.bashrc
 echo "source ~/.bash_config.sh" >>~/.bashrc
 
