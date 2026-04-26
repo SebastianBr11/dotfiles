@@ -20,11 +20,13 @@ Get the dotfiles
 yadm clone git@github.com:SebastianBr11/dotfiles.git
 ```
 
-## Conditional Git Settings
+## Setup commit signing
+
+Change `~/dev/.gitconfig`:
 
 ```gitconfig
-[includeIf "gitdir:~/Dev/"]
-	path = ~/Dev/.gitconfig
+[user]
+        signingkey = 
 ```
 
 ## Common Firefox Extensions
