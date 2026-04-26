@@ -30,11 +30,6 @@ fi
 
 mise settings set npm.package_manager bun
 
-if [[ ! -f ~/.config/starship.toml ]]; then
-	starship preset nerd-font-symbols -o ~/.config/starship.toml
-	echo "Setup starship preset"
-fi
-
 echo "source ~/.shell_common.conf" >>~/.bashrc
 echo "source ~/.bash_config.sh" >>~/.bashrc
 
