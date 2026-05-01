@@ -2,9 +2,7 @@
 return {
 	---@type lspconfig.settings.tinymist
 	settings = {
-		formatterMode = "typstyle",
-		exportPdf = "onType",
-		semanticTokens = "enable",
+		exportPdf = "onSave",
 		formatterProseWrap = true,
 		formatterPrintWidth = 80,
 		lint = {
@@ -12,4 +10,15 @@ return {
 			when = "onType",
 		},
 	},
+	on_attach = function()
+		vim.api.nvim_create_user_command("OpenPdf", function()
+			local filepath = vim.api.nvim_buf_get_name(0)
+
+			if filepath:match("%.typ$") then
+				local pdf_path = filepath:gsub("%.typ$", ".pdf")
+
+				vim.system({ "open", pdf_path })
+			end
+		end, {})
+	end,
 }
