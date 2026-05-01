@@ -1,7 +1,3 @@
-[includeIf "gitdir:~/dev/"]
-	path = ~/dev/.gitconfig
-[includeIf "gitdir:~/dev/uni/"]
-	path = ~/dev/uni/.gitconfig
 [user]
 	name = Sebastian Breit
 	email =  41546861+SebastianBr11@users.noreply.github.com
@@ -22,3 +18,8 @@
 	autocorrect = prompt
 [merge]
 	conflictstyle = zdiff3
+
+[includeIf "gitdir:~/dev/"]
+	path = ~/dev/.gitconfig
+[includeIf "gitdir:~/dev/uni/"]
+	path = ~/dev/uni/.gitconfig
