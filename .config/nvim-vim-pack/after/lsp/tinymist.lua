@@ -17,7 +17,7 @@ return {
 			if filepath:match("%.typ$") then
 				local pdf_path = filepath:gsub("%.typ$", ".pdf")
 
-				vim.system({ "open", pdf_path })
+				vim.system({ "xdg-open", pdf_path })
 			end
 		end, {})
 	end,
