@@ -3,7 +3,7 @@ input {
     repeat-delay 200
     xkb {
       layout "de"
-      options: "caps:escape" // Make caps act like escape
+      options "caps:escape" // Make caps act like escape
     }
   }
 }
