@@ -1,6 +1,6 @@
 input {
   keyboard {
-    repeat-dely 200
+    repeat-delay 200
     xkb {
       layout "de"
       options: "caps:escape" // Make caps act like escape
