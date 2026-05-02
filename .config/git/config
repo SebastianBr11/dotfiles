@@ -1,6 +1,8 @@
 [user]
 	name = Sebastian Breit
 	email =  41546861+SebastianBr11@users.noreply.github.com
+[gpg]
+        format = ssh
 [rerere]
 	enabled = true
 [init]

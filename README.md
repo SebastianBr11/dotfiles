@@ -22,11 +22,12 @@ yadm clone git@github.com:SebastianBr11/dotfiles.git
 
 ## Setup commit signing
 
-Change `~/dev/.gitconfig`:
+Add the path to the signingkey to `~/.gitconfig`: (it will automatically be used
+for projects in `~/dev/`)
 
 ```gitconfig
 [user]
-        signingkey = 
+        signingkey = ~/.ssh/key.pub
 ```
 
 ## Common Firefox Extensions
