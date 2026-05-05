@@ -6,11 +6,11 @@
       "version": "2.0.0 - 3.0.0"
     },
     "SchemaStore.nvim": {
-      "rev": "6db1246640e9e1bdf8a1d1f6d27a940fc0a572d5",
+      "rev": "c8982fcea21d0d8e928a367e0c1536e6ac7cf98e",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "auto-session": {
-      "rev": "62437532b38495551410b3f377bcf4aaac574ebe",
+      "rev": "482d2bdd144e73e5060ce728ac46463684cc9d28",
       "src": "https://github.com/rmagatti/auto-session"
     },
     "blink.cmp": {
@@ -43,7 +43,7 @@
       "src": "https://github.com/NMAC427/guess-indent.nvim"
     },
     "haunt.nvim": {
-      "rev": "666d83868bac8b38f1dc765d9da6eca4d92c826f",
+      "rev": "4436d30d1b0cf21177f1f6f199d76d0ba6bfc322",
       "src": "https://github.com/TheNoeTrevino/haunt.nvim"
     },
     "kanagawa.nvim": {
@@ -63,11 +63,11 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "0f339bf5c93f392dc5d2417d47d7b9edc5f96fe8",
+      "rev": "48555f1615f08c6318150aacb52bf7d61a5af798",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
-      "rev": "88000e7e60177558d1b428a0d561c92e5d81341e",
+      "rev": "f8bcc625fe1b9bd55f7853820fddac9b0996f697",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-autopairs": {
@@ -143,7 +143,7 @@
       "src": "https://github.com/folke/which-key.nvim"
     },
     "yadm-git.nvim": {
-      "rev": "abc6e22fc452accdf05498184c76dc9898c3d07c",
+      "rev": "2871fd110600fd224991497ce613f4f1fb0d4ea3",
       "src": "https://github.com/Kohei-Wada/yadm-git.nvim"
     }
   }
