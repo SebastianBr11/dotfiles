@@ -1,18 +1,18 @@
-local files = require 'overseer.files'
+local files = require("overseer.files")
 
 ---@param opts overseer.SearchParams
 local function get_candidate_rush_files(opts)
-  return vim.fs.find('rush.json', {
+  return vim.fs.find("rush.json", {
     upward = true,
-    type = 'file',
+    type = "file",
     path = vim.fn.getcwd(),
   })
 end
 
 ---@param opts overseer.SearchParams
 local function get_command_line_file(opts)
-  return vim.fs.find('command-line.json', {
-    type = 'file',
+  return vim.fs.find("command-line.json", {
+    type = "file",
     path = vim.fn.getcwd(),
   })[1]
 end
@@ -22,11 +22,11 @@ return {
   generator = function(opts)
     local candidate_packages = get_candidate_rush_files(opts)
     if next(candidate_packages) == nil then
-      return 'No rush.json file found'
+      return "No rush.json file found"
     end
 
-    if vim.fn.executable 'rush' == 0 then
-      return string.format 'Could not find command rush'
+    if vim.fn.executable("rush") == 0 then
+      return string.format("Could not find command rush")
     end
 
     local rush_commands_file = get_command_line_file(opts)
@@ -40,20 +40,20 @@ return {
     if data.commands then
       for _, v in ipairs(data.commands) do
         table.insert(ret, {
-          name = string.format('rush %s (%s)', v.name, v.summary),
+          name = string.format("rush %s (%s)", v.name, v.summary),
           builder = function()
             return {
-              cmd = { 'rush', v.name },
+              cmd = { "rush", v.name },
               cwd = cwd,
             }
           end,
         })
         if v.watchOptions ~= nil then
           table.insert(ret, {
-            name = string.format('rush %s --watch', v.name),
+            name = string.format("rush %s --watch", v.name),
             builder = function()
               return {
-                cmd = { 'rush', v.name, '--watch' },
+                cmd = { "rush", v.name, "--watch" },
                 cwd = cwd,
               }
             end,
@@ -67,10 +67,10 @@ return {
         if param.associatedCommands ~= nil then
           for _, command in ipairs(param.associatedCommands) do
             table.insert(ret, {
-              name = string.format('rush %s %s', command, param.longName),
+              name = string.format("rush %s %s", command, param.longName),
               builder = function()
                 return {
-                  cmd = { 'rush', command, param.longName },
+                  cmd = { "rush", command, param.longName },
                   cwd = cwd,
                 }
               end,
@@ -81,10 +81,10 @@ return {
     end
 
     table.insert(ret, {
-      name = 'rush' .. ' update',
+      name = "rush" .. " update",
       builder = function()
         return {
-          cmd = { 'rush', 'update' },
+          cmd = { "rush", "update" },
           cwd = cwd,
         }
       end,

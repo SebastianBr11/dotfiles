@@ -1,18 +1,18 @@
-local files = require 'overseer.files'
+local files = require("overseer.files")
 
 ---@type table<string, string[]>
 local mgr_lockfiles = {
-  npm = { 'package-lock.json' },
-  pnpm = { 'pnpm-lock.yaml' },
-  yarn = { 'yarn.lock' },
-  bun = { 'bun.lockb', 'bun.lock' },
+  npm = { "package-lock.json" },
+  pnpm = { "pnpm-lock.yaml" },
+  yarn = { "yarn.lock" },
+  bun = { "bun.lockb", "bun.lock" },
 }
 
 local mgr_ci_cmds = {
-  npm = 'npm ci',
-  pnpm = 'pnpm i --frozen-lockfile',
-  yarn = 'yarn --immutable',
-  bun = 'bun ci',
+  npm = "npm ci",
+  pnpm = "pnpm i --frozen-lockfile",
+  yarn = "yarn --immutable",
+  bun = "bun ci",
 }
 
 ---@param opts overseer.SearchParams
@@ -22,11 +22,11 @@ local function get_candidate_package_files(opts)
   -- https://stackoverflow.com/questions/51701191/react-native-has-something-to-use-local-folders-as-package-name-what-is-it-ca
   -- To cover that case, we search for package.json files starting from the current file folder, up to the
   -- working directory
-  local matches = vim.fs.find('package.json', {
+  local matches = vim.fs.find("package.json", {
     upward = true,
-    type = 'file',
+    type = "file",
     path = opts.dir,
-    stop = vim.fn.getcwd() .. '/..',
+    stop = vim.fn.getcwd() .. "/..",
     limit = math.huge,
   })
   if #matches > 0 then
@@ -35,9 +35,9 @@ local function get_candidate_package_files(opts)
   -- we couldn't find any match up to the working directory.
   -- let's now search for any possible single match without
   -- limiting ourselves to the working directory.
-  return vim.fs.find('package.json', {
+  return vim.fs.find("package.json", {
     upward = true,
-    type = 'file',
+    type = "file",
     path = vim.fn.getcwd(),
   })
 end
@@ -74,7 +74,7 @@ local function get_package_and_manager(candidate_packages)
   for _, package_file in ipairs(candidate_packages) do
     local data = files.load_json_file(package_file)
     if data.scripts or data.workspaces then
-      return { package = package_file, manager = 'npm' }
+      return { package = package_file, manager = "npm" }
     end
   end
 
@@ -87,7 +87,7 @@ return {
     local candidate_packages = get_candidate_package_files(opts)
     local result = get_package_and_manager(candidate_packages)
     if not result then
-      return 'No package.json file found'
+      return "No package.json file found"
     end
 
     local package, bin = result.package, result.manager

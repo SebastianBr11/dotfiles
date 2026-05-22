@@ -1,11 +1,11 @@
 ---@type vim.lsp.Config
 return {
-	---@type lspconfig.settings.cssls
-	settings = {
-		css = {
-			lint = {
-				unknownAtRules = "ignore", -- For tailwind
-			},
-		},
-	},
+  ---@type lspconfig.settings.cssls
+  settings = {
+    css = {
+      lint = {
+        unknownAtRules = "ignore", -- For tailwind
+      },
+    },
+  },
 }

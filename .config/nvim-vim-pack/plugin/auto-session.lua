@@ -5,4 +5,5 @@ vim.keymap.set("n", "<leader>wr", "<cmd>AutoSession search<CR>", { desc = "Sessi
 vim.keymap.set("n", "<leader>ws", "<cmd>AutoSession save<CR>", { desc = "[S]ave session" })
 vim.keymap.set("n", "<leader>wa", "<cmd>AutoSession toggle<CR>", { desc = "Toggle autosave" })
 
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions =
+  "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
