@@ -25,3 +25,5 @@
 	path = ~/dev/.gitconfig
 [includeIf "gitdir:~/dev/uni/"]
 	path = ~/dev/uni/.gitconfig
+[alias]
+	merge-log-short = "!f() { git log --pretty=oneline \"$1^..$1\"; }; f"
