@@ -13,3 +13,5 @@ export PATH=$(echo "$PATH" | sed -e "s|:${BREW_BIN_PATH}||g"):$BREW_BIN_PATH
 export PATH=$(echo "$PATH" | sed -e "s|:${BREW_SBIN_PATH}||g"):$BREW_SBIN_PATH
 
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+
+fp() { cd "$HOME/Dev/$(~/bin/find-project | fzf | awk '{print $1; exit}')"; }

@@ -15,3 +15,12 @@ fish_add_path -a -P -g --move "/home/linuxbrew/.linuxbrew/sbin"
 
 fish_add_path -a $ANDROID_HOME/tools
 fish_add_path -a $ANDROID_HOME/tools/bin
+
+function find-project
+    set picked (~/bin/find-project | fzf --style full --border | awk '{print $1; exit}')
+    if test -n "$picked"
+        cd "$HOME/Dev/$picked"
+    end
+end
+
+abbr --add fp find-project

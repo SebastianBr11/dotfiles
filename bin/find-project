@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+cd "$HOME/dev" || exit 1
+for d in */; do
+  cd "$d" >/dev/null 2>&1 || continue
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    b=$(git branch --show-current 2>/dev/null || echo "")
+    if [ -n "$b" ]; then
+      echo "${d%/}  [$b]"
+    else
+      echo "${d%/}  [detached]"
+    fi
+  else
+    echo "${d%/}"
+  fi
+  cd - >/dev/null
+done
