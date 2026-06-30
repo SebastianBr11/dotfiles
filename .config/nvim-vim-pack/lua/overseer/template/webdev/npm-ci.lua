@@ -100,7 +100,7 @@ return {
     local cwd = vim.fs.dirname(package)
 
     table.insert(ret, {
-      name = mgr_ci_cmds[bin],
+      name = mgr_ci_cmds[bin] .. (bin == "pnpm" and " (ci)" or ""),
       builder = function()
         return {
           cmd = mgr_ci_cmds[bin],
