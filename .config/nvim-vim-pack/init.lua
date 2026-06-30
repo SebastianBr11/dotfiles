@@ -12,8 +12,9 @@ Config.lsp_servers_table = {
   stylua = "stylua",
   svelte = "svelte",
   tailwindcss = "tailwindcss",
-  tombi = "tombi",
   tinymist = "tinymist",
+  tombi = "tombi",
+  tsgo = "tsgo",
   vtsls = "vtsls",
   vue_ls = "vue_ls",
 }
