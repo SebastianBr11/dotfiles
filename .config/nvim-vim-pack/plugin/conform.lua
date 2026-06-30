@@ -4,6 +4,8 @@ vim.keymap.set("n", "<leader>f", function()
   require("conform").format({ async = true })
 end, { desc = "[F]ormat buffer" })
 
+local webdev_formatters = { "biome-check", "oxfmt", "prettierd", stop_after_first = true }
+
 require("conform").setup({
   notify_on_error = false,
   format_on_save = function(bufnr)
@@ -24,29 +26,32 @@ require("conform").setup({
     ["biome-check"] = {
       require_cwd = true,
     },
+    oxfmt = {
+      require_cwd = true,
+    },
   },
   default_format_opts = {
     lsp_format = "fallback",
   },
   formatters_by_ft = {
     -- Webdev
-    astro = { "biome-check", "prettierd", stop_after_first = true },
-    css = { "biome-check", "prettierd", stop_after_first = true },
-    scss = { "biome-check", "prettierd", stop_after_first = true },
-    graphql = { "biome-check", "prettierd", stop_after_first = true },
-    html = { "biome-check", "prettierd", stop_after_first = true },
-    htmlangular = { "biome-check", "prettierd", stop_after_first = true },
-    javascript = { "biome-check", "prettierd", stop_after_first = true },
-    javascriptreact = { "biome-check", "prettierd", stop_after_first = true },
-    svelte = { "biome-check", "prettierd", stop_after_first = true },
-    typescript = { "biome-check", "prettierd", stop_after_first = true },
-    ["typescript.tsx"] = { "biome-check", "prettierd", stop_after_first = true },
-    typescriptreact = { "biome-check", "prettierd", stop_after_first = true },
-    vue = { "biome-check", "prettierd", stop_after_first = true },
+    astro = webdev_formatters,
+    css = webdev_formatters,
+    scss = webdev_formatters,
+    graphql = webdev_formatters,
+    html = webdev_formatters,
+    htmlangular = webdev_formatters,
+    javascript = webdev_formatters,
+    javascriptreact = webdev_formatters,
+    svelte = webdev_formatters,
+    typescript = webdev_formatters,
+    ["typescript.tsx"] = webdev_formatters,
+    typescriptreact = webdev_formatters,
+    vue = webdev_formatters,
 
     -- Other
-    json = { "biome-check", "prettierd", stop_after_first = true },
-    jsonc = { "biome-check", "prettierd", stop_after_first = true },
+    json = webdev_formatters,
+    jsonc = webdev_formatters,
     sh = { "shfmt" },
   },
 })

@@ -18,6 +18,7 @@ Config.lsp_servers_table = {
   vue_ls = "vue_ls",
 }
 Config.formatters_table = {
+  oxfmt = "oxfmt",
   prettierd = "prettierd",
   shfmt = "shfmt",
 }
