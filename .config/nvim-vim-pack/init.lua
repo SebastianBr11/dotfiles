@@ -30,9 +30,9 @@ Config.other_mason_tools_table = {
   tree_sitter_cli = "tree-sitter-cli",
 }
 
-Config.lsp_servers = vim.tbl_keys(Config.lsp_servers_table)
-Config.formatters = vim.tbl_keys(Config.formatters_table)
-Config.linters = vim.tbl_keys(Config.linters_table)
+Config.lsp_servers = vim.tbl_values(Config.lsp_servers_table)
+Config.formatters = vim.tbl_values(Config.formatters_table)
+Config.linters = vim.tbl_values(Config.linters_table)
 Config.other_mason_tools = vim.tbl_values(Config.other_mason_tools_table)
 
 Config.mason_ensure_installed = Config.other_mason_tools
