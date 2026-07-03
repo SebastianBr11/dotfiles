@@ -17,9 +17,9 @@ fish_add_path -a $ANDROID_HOME/tools
 fish_add_path -a $ANDROID_HOME/tools/bin
 
 function find-project
-    set picked (~/bin/find-project | fzf --style full --border | awk '{print $1; exit}')
+    set picked (~/bin/find-project | fzf --style=full --border | awk '{gsub(/[()]/,"",$3); $3=$3"/"; print $3$1; exit}')
     if test -n "$picked"
-        cd "$HOME/Dev/$picked"
+        cd "$HOME/dev/$picked"
     end
 end
 

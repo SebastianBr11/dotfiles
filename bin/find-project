@@ -1,17 +1,42 @@
 #!/usr/bin/env bash
 
 cd "$HOME/dev" || exit 1
-for d in */; do
-  cd "$d" >/dev/null 2>&1 || continue
-  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    b=$(git branch --show-current 2>/dev/null || echo "")
-    if [ -n "$b" ]; then
-      echo "${d%/}  [$b]"
-    else
-      echo "${d%/}  [detached]"
+
+check_dir() {
+  # parent_dirs is shown kind of like a tag
+  local dir repo_found parent_dirs
+  for dir in */; do
+    repo_found=0
+
+    # path from ~/dev/ to the current dir we're about to descend into
+    parent_dirs="${PWD#"$HOME/dev"/}"
+    parent_dirs="${parent_dirs%/}"
+
+    # detect repo (handles both .git dir and gitdir file for worktrees/submodules)
+    if [ -e "$dir/.git" ]; then
+      if [ -d "$dir/.git" ] || [ -f "$dir/.git" ]; then
+        if (cd "$dir" && git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
+          repo_found=1
+        fi
+      fi
     fi
-  else
-    echo "${d%/}"
-  fi
-  cd - >/dev/null
-done
+
+    cd "$dir" >/dev/null 2>&1 || continue
+
+    if [ "$repo_found" -eq 1 ]; then
+      branch=$(git branch --show-current 2>/dev/null || true)
+      if [ -n "$branch" ]; then
+        echo "${dir%/}  [$branch] ($parent_dirs)"
+      else
+        echo "${dir%/}  [detached] ($parent_dirs)"
+      fi
+      cd .. >/dev/null
+      continue # avoid nested repos
+    fi
+
+    check_dir
+    cd .. >/dev/null
+  done
+}
+
+check_dir
