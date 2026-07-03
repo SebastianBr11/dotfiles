@@ -15,6 +15,10 @@ require("snacks").setup({
   scratch = {},
 })
 
+vim.api.nvim_create_user_command("LspInfo", function()
+  Snacks.picker.lsp_config()
+end, {})
+
 vim.keymap.set("n", "<leader>nd", function()
   Snacks.notifier.hide()
 end)
