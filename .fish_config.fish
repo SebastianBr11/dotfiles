@@ -18,6 +18,10 @@ fish_add_path -a $ANDROID_HOME/tools/bin
 
 function find-project
     cd $(~/bin/choose-project )
+    if count $argv >/dev/null
+        nv
+    end
 end
 
 abbr --add fp find-project
+abbr --add fpn find-project 1
