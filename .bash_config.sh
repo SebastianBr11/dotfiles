@@ -14,4 +14,4 @@ export PATH=$(echo "$PATH" | sed -e "s|:${BREW_SBIN_PATH}||g"):$BREW_SBIN_PATH
 
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 
-fp() { cd "$HOME/dev/$(~/bin/find-project | fzf --ansi | awk '{gsub(/[()]/,"",$3); $3=$3"/"; print $3$1; exit}')"; }
+fp() { cd "$(~/bin/choose-project)"; }

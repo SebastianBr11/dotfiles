@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-cd "$HOME/dev" || exit 1
+DEV_FOLDER="$HOME/dev"
+
+cd "$DEV_FOLDER" || exit 1
 
 # deterministic hue 0..359
 tag_hue() {
@@ -87,4 +89,16 @@ check_dir() {
   done
 }
 
-check_dir
+folder=$(check_dir | fzf --ansi --layout=reverse --height=50% --preview='
+        proj=$(printf "%s" "{}" | awk "{print \$1}" | tr -d "'\''")
+        tag=$(printf "%s" "{}" | awk "{print \$3}" | sed "s/[()]//g" | tr -d "'\''")
+        dir="$HOME/dev/$tag/$proj"
+
+        if command -v eza >/dev/null 2>&1; then
+            eza "$dir" --icons=always -1 --group-directories-first --color=always | head -n 200
+        else
+            ls -R -1 2>&1 | head -n 200
+        fi
+  ' | awk '{gsub(/[()]/,"",$3); $3=$3"/"; print $3$1; exit}')
+
+echo "$DEV_FOLDER/$folder"
