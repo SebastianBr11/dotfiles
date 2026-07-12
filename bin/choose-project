@@ -102,4 +102,6 @@ folder=$(check_dir | fzf --ansi --layout=reverse --height=50% --preview='
         fi
   ' | awk '{gsub(/[()]/,"",$3); $3=$3"/"; print $3$1; exit}')
 
-echo "$DEV_FOLDER/$folder"
+if [[ -n "$folder" ]]; then
+  echo "$DEV_FOLDER/$folder"
+fi

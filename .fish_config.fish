@@ -17,9 +17,12 @@ fish_add_path -a $ANDROID_HOME/tools
 fish_add_path -a $ANDROID_HOME/tools/bin
 
 function find-project
-    cd $(~/bin/choose-project )
-    if count $argv >/dev/null
-        nv
+    set -l location (~/bin/choose-project)
+    if test -n "$location"
+        cd "$location"
+        if count $argv >/dev/null
+            nv
+        end
     end
 end
 
