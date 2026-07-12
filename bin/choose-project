@@ -47,8 +47,9 @@ check_dir() {
   for dir in */; do
     repo_found=0
 
-    # path from ~/dev/ to the current dir we're about to descend into
-    parent_dirs="${PWD#"$HOME/dev"/}"
+    # path from $DEV_FOLDER to the current dir we're about to descend into
+    parent_dirs="${PWD#"$DEV_FOLDER"}"
+    parent_dirs="${parent_dirs#/}"
     parent_dirs="${parent_dirs%/}"
 
     tag="$parent_dirs"
