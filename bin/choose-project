@@ -95,10 +95,22 @@ folder=$(check_dir | fzf --ansi --layout=reverse --height=50% --preview='
         tag=$(printf "%s" "{}" | awk "{print \$3}" | sed "s/[()]//g" | tr -d "'\''")
         dir="$HOME/dev/$tag/$proj"
 
-        if command -v eza >/dev/null 2>&1; then
-            eza "$dir" --icons=always -1 --group-directories-first --color=always | head -n 200
+        # Show contents of README
+        readme="$(find "$dir" -maxdepth 1 -type f -iname '*readme*' -print -quit)"
+        if [[ -n "$readme" ]]; then
+          if command -v bat >/dev/null 2>&1; then
+            bat "$readme" --color=always --style=plain --line-range=:500
+          else
+            cat "$readme"
+          fi
         else
-            ls -R -1 2>&1 | head -n 200
+          # Show directory contents when no README
+          # Prefer eza over ls if available
+          if command -v eza >/dev/null 2>&1; then
+              eza "$dir" --icons=always -1 --group-directories-first --color=always | head -n 200
+          else
+              ls -R -1 2>&1 | head -n 200
+          fi
         fi
   ' | awk '{gsub(/[()]/,"",$3); $3=$3"/"; print $3$1; exit}')
 
