@@ -74,13 +74,13 @@ check_dir() {
 
     if [ "$repo_found" -eq 1 ]; then
       branch=$(git branch --show-current 2>/dev/null || true)
-      if [ -n "$branch" ]; then
-        printf '%s  \033[90m[%s]\033[0m \033[38;2;%s;%s;%sm(%s)\033[0m\n' \
-          "${dir%/}" "$branch" "$r" "$g" "$b" "$tag"
-      else
-        printf '%s  \033[90m[%s]\033[0m \033[38;2;%s;%s;%sm(%s)\033[0m\n' \
-          "${dir%/}" "[detached]" "$r" "$g" "$b" "$tag"
-      fi
+      branchtext=${branch:-detached}
+      branchtext="[$branchtext]"
+      tagtext=${tag:+("$tag")}
+
+      printf '%s \033[90m %s \033[0m\033[38;2;%s;%s;%sm%s\033[0m\n' \
+        "${dir%/}" "$branchtext" "$r" "$g" "$b" "$tagtext"
+
       cd .. >/dev/null
       continue # avoid nested repos
     fi
