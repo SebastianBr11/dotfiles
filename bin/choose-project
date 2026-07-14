@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEV_FOLDER="$HOME/dev"
+export DEV_FOLDER="$HOME/dev"
 
 cd "$DEV_FOLDER" || exit 1
 
@@ -93,7 +93,7 @@ check_dir() {
 folder=$(check_dir | fzf --ansi --layout=reverse --height=50% --preview='
         proj=$(printf "%s" "{}" | awk "{print \$1}" | tr -d "'\''")
         tag=$(printf "%s" "{}" | awk "{print \$3}" | sed "s/[()]//g" | tr -d "'\''")
-        dir="$HOME/dev/$tag/$proj"
+        dir="$DEV_FOLDER/$tag/$proj"
 
         # Show contents of README
         readme="$(find "$dir" -maxdepth 1 -type f -iname '*readme*' -print -quit)"
