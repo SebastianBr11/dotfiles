@@ -1,0 +1,13 @@
+[tools]
+bat = "latest"
+eza = "latest"
+fd = "latest"
+ripgrep = "latest"
+starship = "latest"
+yq = "latest"
+
+[shell_alias]
+ll = "eza -l --icons=auto --group-directories-first"
+ldot = "eza -d .*"
+ls = "eza"
+l1 = "eza -1"
