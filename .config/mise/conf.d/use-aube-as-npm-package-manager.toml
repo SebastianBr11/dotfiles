@@ -1,0 +1,5 @@
+[tools]
+aube = "latest"
+
+[settings.npm]
+package_manager = "aube"
