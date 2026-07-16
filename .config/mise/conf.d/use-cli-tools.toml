@@ -2,6 +2,8 @@
 bat = "latest"
 eza = "latest"
 fd = "latest"
+fzf = "latest"
+gum = "latest"
 ripgrep = "latest"
 starship = "latest"
 yq = "latest"
