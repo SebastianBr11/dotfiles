@@ -1,4 +1,8 @@
 _G.Config = {}
+Config.pack_versions = {
+  fff = "v0.9.6",
+}
+
 Config.lsp_servers_table = {
   angularls = "angularls",
   astro = "astro",

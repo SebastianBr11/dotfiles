@@ -4,8 +4,6 @@ vim.pack.add({
   "https://github.com/andersevenrud/nvim_context_vt",
 })
 
--- NOTE: When updating nvim-treesitter, call :TSUpdate manually
-
 local filetypes = {
   "angular",
   "astro",

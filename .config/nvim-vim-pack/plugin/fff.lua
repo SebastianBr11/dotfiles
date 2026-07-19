@@ -1,16 +1,5 @@
-local version = "v0.9.6"
-vim.pack.add({ { src = "https://github.com/dmtrKovalenko/fff.nvim", version = version } })
-
-vim.api.nvim_create_autocmd("PackChanged", {
-  callback = function(ev)
-    local name, kind = ev.data.spec.name, ev.data.kind
-    if name == "fff.nvim" and (kind == "install" or kind == "update") then
-      if not ev.data.active then
-        vim.cmd.packadd("fff.nvim")
-      end
-      require("fff.download").ensure_downloaded({ force = true, version = version })
-    end
-  end,
+vim.pack.add({
+  { src = "https://github.com/dmtrKovalenko/fff.nvim", version = Config.pack_versions.fff },
 })
 
 vim.g.fff = {
