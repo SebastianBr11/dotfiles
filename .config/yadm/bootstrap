@@ -30,6 +30,3 @@ fi
 
 echo "source ~/.shell_common.conf" >>~/.bashrc
 echo "source ~/.bash_config.sh" >>~/.bashrc
-
-echo "source ~/.shell_common.conf" >>~/.config/fish/config.fish
-echo "source ~/.fish_config.fish" >>~/.config/fish/config.fish
