@@ -1,7 +1,11 @@
 min_version = "2026.7.4"  # Dotfiles need to be out of experimental
 
+[settings]
+dotfiles.root = "~/.dotfiles"
+dotfiles.default_mode = "symlink"
+
 [dotfiles]
 "~/.bashrc" = { block = """
-source ~/dotfiles/.shell_common.conf
-source ~/dotfiles/.bash_config.sh
+source ~/.dotfiles/.shell_common.conf
+source ~/.dotfiles/.bash_config.sh
   """ }
