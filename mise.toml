@@ -17,7 +17,7 @@ dotfiles.default_mode = "symlink"
 "~/dev/uni/.gitconfig" = "dev/uni/.gitconfig"
 "~/.bashrc" = { block = """
 source ~/.dotfiles/.shell-common.sh
-source ~/.dotfiles/.bash_config.sh
+source ~/.dotfiles/.bash-config.sh
   """ }
 
 [tasks.bootstrap]
