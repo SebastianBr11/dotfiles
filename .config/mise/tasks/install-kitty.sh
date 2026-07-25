@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Install or update kitty"
+#MISE tools={gum="latest"}
 
 if [ "$(uname -s)" != "Linux" ]; then
   echo "Can only be run on Linux!"
