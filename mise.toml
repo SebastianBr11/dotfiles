@@ -5,6 +5,16 @@ dotfiles.root = "~/.dotfiles"
 dotfiles.default_mode = "symlink"
 
 [dotfiles]
+"~/.config/fish/**/*.fish" = ".config/fish/**/*.fish"
+"~/.config/ghostty" = { mode = "symlink-each", source = ".config/ghostty" }
+"~/.config/git" = ".config/git"
+"~/.config/kitty" = { mode = "symlink-each", source = ".config/kitty" }
+"~/bin" = { mode = "symlink-each", source = "bin" }
+"~/.config/mise" = { mode = "symlink-each", source = ".config/mise" }
+"~/.config/nvim-vim-pack" = ".config/nvim-vim-pack"
+"~/.config/starship.toml" = ".config/starship.toml"
+"~/dev/.gitconfig" = "dev/.gitconfig"
+"~/dev/uni/.gitconfig" = "dev/uni/.gitconfig"
 "~/.bashrc" = { block = """
 source ~/.dotfiles/.shell_common.conf
 source ~/.dotfiles/.bash_config.sh
