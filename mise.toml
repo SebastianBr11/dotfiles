@@ -15,7 +15,7 @@ dotfiles.default_mode = "symlink"
 "~/.config/starship.toml" = ".config/starship.toml"
 "~/dev/.gitconfig" = "dev/.gitconfig"
 "~/dev/uni/.gitconfig" = "dev/uni/.gitconfig"
-"~/.bashrc" = { block = """
+"~/.bashrc/shell-config" = { block = """
 source ~/.dotfiles/.shell-common.sh
 source ~/.dotfiles/.bash-config.sh
   """ }
