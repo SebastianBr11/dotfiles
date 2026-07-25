@@ -5,6 +5,10 @@ end
 
 local dotfiles_dir = vim.fn.expand("~/.dotfiles")
 
+vim.keymap.set("n", "<leader>s.", function()
+  Snacks.picker.files({ cwd = dotfiles_dir, hidden = true })
+end, { desc = "[S]earch [.]-files (Dotfiles)" })
+
 -- Automatically switch to the dotfiles git repo when a file managed by Mise is opened.
 -- If a file in another git repo is opened, that repo is loaded by setting the env variables
 -- to make sure that e.g. Neogit works as expected.
