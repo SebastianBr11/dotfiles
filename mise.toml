@@ -2,6 +2,6 @@ min_version = "2026.7.4"  # Dotfiles need to be out of experimental
 
 [dotfiles]
 "~/.bashrc" = { block = """
-source ~/.shell_common.conf
-source ~/.bash_config.sh
+source ~/dotfiles/.shell_common.conf
+source ~/dotfiles/.bash_config.sh
   """ }
