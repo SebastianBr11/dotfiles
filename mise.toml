@@ -19,3 +19,6 @@ dotfiles.default_mode = "symlink"
 source ~/.dotfiles/.shell_common.conf
 source ~/.dotfiles/.bash_config.sh
   """ }
+
+[tasks.bootstrap]
+depends_post = ["install-fonts"]
