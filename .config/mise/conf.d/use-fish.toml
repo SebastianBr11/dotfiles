@@ -1,3 +1,6 @@
 [tools."aqua:fish-shell/fish-shell"]
 version = "latest"
-postinstall = "ln -sf $(which fish) ~/.local/bin/fish"
+postinstall = """
+ln -sf $(which fish) ~/.local/bin/fish
+ln -sf $(which fish) ~/.local/bin/fish_indent
+"""
