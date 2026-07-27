@@ -1,0 +1,5 @@
+#!/usr/bin/env -S mise tool-stub
+# A modern, complete, self-contained TeX/LaTeX engine
+
+tool = "github:tectonic-typesetting/tectonic"
+version = "latest"
