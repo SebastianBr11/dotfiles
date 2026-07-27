@@ -9,6 +9,9 @@ vim.keymap.set("n", "<leader>s.", function()
   Snacks.picker.files({ cwd = dotfiles_dir, hidden = true })
 end, { desc = "[S]earch [.]-files (Dotfiles)" })
 
+---@type string[]
+local ignored_files = {}
+
 -- Automatically switch to the dotfiles git repo when a file managed by Mise is opened.
 -- If a file in another git repo is opened, that repo is loaded by setting the env variables
 -- to make sure that e.g. Neogit works as expected.
@@ -64,6 +67,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     for _, value in pairs(data.files) do
       local mise_file_path = vim.fn.expand(value.target)
       local mise_source_path = vim.fn.expand(value.source)
+
       if
         vim.startswith(current_file_path, mise_file_path)
         or vim.startswith(current_file_path, mise_source_path)
@@ -71,6 +75,24 @@ vim.api.nvim_create_autocmd("BufEnter", {
         vim.api.nvim_set_current_dir(dotfiles_dir)
         vim.env.GIT_DIR = dotfiles_dir .. "/.git"
         vim.env.GIT_WORK_TREE = dotfiles_dir
+
+        local ignore_file = vim.tbl_contains(ignored_files, mise_source_path)
+        if value.state == "missing" and not ignore_file then
+          vim.ui.select({ "yes", "no" }, {
+            prompt = "Missing dotfile opened. Do you want Mise to create a symlink?",
+          }, function(choice)
+            if choice == "yes" then
+              result = vim
+                .system({ "mise", "dotfiles", "apply", value.target }, { cwd = dotfiles_dir })
+                :wait()
+              if result.code ~= 0 then
+                vim.notify("An error occurred while applying dotfile" .. result.stderr, "error")
+              end
+            elseif choice == "no" then
+              table.insert(ignored_files, mise_source_path)
+            end
+          end)
+        end
         break
       end
     end
