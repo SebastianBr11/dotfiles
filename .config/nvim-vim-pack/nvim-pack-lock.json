@@ -146,10 +146,6 @@
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
-    },
-    "yadm-git.nvim": {
-      "rev": "210f12fe0ff049b80210fdbc0490e13b3b7398aa",
-      "src": "https://github.com/Kohei-Wada/yadm-git.nvim"
     }
   }
 }

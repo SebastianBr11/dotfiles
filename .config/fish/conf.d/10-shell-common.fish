@@ -1,1 +1,1 @@
-source ~/.shell_common.conf
+source ~/.dotfiles/.shell-common.sh
