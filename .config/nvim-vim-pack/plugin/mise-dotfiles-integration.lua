@@ -12,6 +12,28 @@ end, { desc = "[S]earch [.]-files (Dotfiles)" })
 ---@type string[]
 local ignored_files = {}
 
+local mise_dotfiles = {}
+
+local function update_mise_dotfiles()
+  local result = vim
+    .system({ "mise", "bootstrap", "dotfiles", "status", "--json" }, { cwd = dotfiles_dir })
+    :wait()
+  if result.code ~= 0 then
+    vim.notify("Error running mise bootstrap dotfiles status --json", "error")
+    return
+  end
+
+  local ok, data = pcall(vim.json.decode, result.stdout, { luanil = { object = true } })
+  if not ok then
+    vim.notify("mise produced invalid json: %s", result.stdout, "error")
+    return
+  end
+
+  mise_dotfiles = data
+end
+
+vim.api.nvim_create_user_command("UpdateMise", update_mise_dotfiles, {})
+
 -- Automatically switch to the dotfiles git repo when a file managed by Mise is opened.
 -- If a file in another git repo is opened, that repo is loaded by setting the env variables
 -- to make sure that e.g. Neogit works as expected.
@@ -50,21 +72,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
       return
     end
 
-    result = vim
-      .system({ "mise", "bootstrap", "dotfiles", "status", "--json" }, { cwd = dotfiles_dir })
-      :wait()
-    if result.code ~= 0 then
-      vim.notify("Error running mise bootstrap dotfiles status --json", "error")
-      return
+    if not mise_dotfiles.files then
+      update_mise_dotfiles()
     end
 
-    local ok, data = pcall(vim.json.decode, result.stdout, { luanil = { object = true } })
-    if not ok then
-      vim.notify("mise produced invalid json: %s", result.stdout, "error")
-      return
-    end
-
-    for _, value in pairs(data.files) do
+    for _, value in pairs(mise_dotfiles.files) do
       local mise_file_path = vim.fn.expand(value.target)
       local mise_source_path = vim.fn.expand(value.source)
 
