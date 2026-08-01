@@ -5,6 +5,10 @@
       "src": "https://github.com/L3MON4D3/LuaSnip",
       "version": "2.0.0 - 3.0.0"
     },
+    "NeoJJ": {
+      "rev": "42a3344340d3fac567b01ddd86f950dddf65f841",
+      "src": "https://github.com/NicholasZolton/NeoJJ"
+    },
     "SchemaStore.nvim": {
       "rev": "0df41ab13b54151fcb6ab023cc2a761482070f76",
       "src": "https://github.com/b0o/SchemaStore.nvim"
