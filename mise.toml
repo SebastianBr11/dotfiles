@@ -11,7 +11,7 @@ dotfiles.default_mode = "symlink"
 "~/.config/kitty" = { mode = "symlink-each", source = ".config/kitty" }
 "~/bin" = { mode = "symlink-each", source = "bin" }
 "~/.config/mise" = { mode = "symlink-each", source = ".config/mise" }
-"~/.config/nvim-vim-pack" = ".config/nvim-vim-pack"
+"~/.config/nvim" = ".config/nvim"
 "~/.config/starship.toml" = ".config/starship.toml"
 "~/dev/.gitconfig" = "dev/.gitconfig"
 "~/dev/uni/.gitconfig" = "dev/uni/.gitconfig"

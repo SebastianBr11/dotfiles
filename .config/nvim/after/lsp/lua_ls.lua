@@ -1,7 +1,7 @@
 ---@param pluginName string
 ---@return string
 local function location(pluginName)
-  return "$HOME/.local/share/nvim-vim-pack/site/pack/core/opt/" .. pluginName
+  return "$HOME/.local/share/nvim/site/pack/core/opt/" .. pluginName
 end
 
 ---@type vim.lsp.Config
