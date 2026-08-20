@@ -1,0 +1,17 @@
+[user]
+name = "Sebastian Breit"
+email = "41546861+SebastianBr11@users.noreply.github.com"
+
+[ui]
+default-command = "status"
+
+# From https://codeberg.org/willhbr/dotfiles/src/branch/main/jj/jjconfig.toml
+[revsets]
+log = "@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()"
+
+[signing]
+backend = "ssh"
+behavior = "own"
+
+[git]
+sign-on-push = true

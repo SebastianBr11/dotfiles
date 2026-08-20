@@ -20,6 +20,12 @@ for projects in `~/dev/`)
         signingkey = ~/.ssh/key.pub
 ```
 
+Add the path to the signing key to "~/.config/jj/config.toml":
+
+```toml
+key = "~/.ssh/key.pub"
+```
+
 ## Common Firefox Extensions
 
 - Bitwarden: <https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/>

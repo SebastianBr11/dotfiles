@@ -8,6 +8,7 @@ dotfiles.default_mode = "symlink"
 "~/.config/fish/**/*.fish" = ".config/fish/**/*.fish"
 "~/.config/ghostty" = { mode = "symlink-each", source = ".config/ghostty" }
 "~/.config/git" = ".config/git"
+"~/.config/jj" = { mode = "symlink-each", source = ".config/jj" }
 "~/.config/kitty" = { mode = "symlink-each", source = ".config/kitty" }
 "~/bin" = { mode = "symlink-each", source = "bin" }
 "~/.config/mise" = { mode = "symlink-each", source = ".config/mise" }
