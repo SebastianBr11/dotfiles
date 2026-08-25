@@ -1,4 +1,4 @@
-min_version = "2026.7.4"  # Dotfiles need to be out of experimental
+min_version = "2026.8.11"  # Need auto_update setting
 
 [settings]
 dotfiles.root = "~/.dotfiles"
