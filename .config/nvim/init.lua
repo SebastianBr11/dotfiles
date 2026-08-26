@@ -23,6 +23,7 @@ Config.lsp_servers_table = {
   tsgo = "tsgo",
   vtsls = "vtsls",
   vue_ls = "vue_ls",
+  yamlls = "yamlls",
 }
 Config.formatters_table = {
   oxfmt = "oxfmt",
