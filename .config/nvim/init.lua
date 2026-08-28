@@ -1,6 +1,6 @@
 _G.Config = {}
 Config.pack_versions = {
-  fff = "v0.9.6",
+  fff = "v0.10.5",
 }
 
 Config.lsp_servers_table = {
