@@ -1,4 +1,4 @@
-min_version = "2026.8.11"  # Need auto_update setting
+min_version = "2026.8.11" # Need auto_update setting
 
 [settings]
 dotfiles.root = "~/.dotfiles"
@@ -20,6 +20,9 @@ dotfiles.default_mode = "symlink"
 source ~/.dotfiles/.shell-common.sh
 source ~/.dotfiles/.bash-config.sh
   """ }
+
+[bootstrap.repos]
+"~/dev/src/do-not-track-cli" = { url = "https://github.com/alloydwhitlock/do-not-track-cli" }
 
 [tasks.bootstrap]
 depends_post = ["install-fonts"]
