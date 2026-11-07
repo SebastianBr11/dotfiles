@@ -78,8 +78,9 @@ check_dir() {
       branchtext="[$branchtext]"
       tagtext=${tag:+("$tag")}
 
-      printf '%s \033[90m %s \033[0m\033[38;2;%s;%s;%sm%s\033[0m\n' \
-        "${dir%/}" "$branchtext" "$r" "$g" "$b" "$tagtext"
+      printf '%s \033[90m %s \033[0m\033[38;2;%s;%s;%sm%s\033[0m\t%s\n' \
+        "${dir%/}" "$branchtext" "$r" "$g" "$b" "$tagtext" \
+        "${PWD#"$DEV_FOLDER"/}"
 
       cd .. >/dev/null
       continue # avoid nested repos
@@ -90,29 +91,36 @@ check_dir() {
   done
 }
 
-folder=$(check_dir | fzf --ansi --layout=reverse --height=50% --preview='
-        proj=$(printf "%s" "{}" | awk "{print \$1}" | tr -d "'\''")
-        tag=$(printf "%s" "{}" | awk "{print \$3}" | sed "s/[()]//g" | tr -d "'\''")
-        dir="$DEV_FOLDER/$tag/$proj"
+folder=$(
+  check_dir |
+    fzf --ansi \
+      --delimiter=$'\t' \
+      --with-nth=1 \
+      --accept-nth=2 \
+      --layout=reverse \
+      --height=50% \
+      --preview='
+          dir="$DEV_FOLDER"/{2}
 
-        # Show contents of README
-        readme="$(find "$dir" -maxdepth 1 -type f -iname '*readme*' -print -quit)"
-        if [[ -n "$readme" ]]; then
-          if command -v bat >/dev/null 2>&1; then
-            bat "$readme" --color=always --style=plain --line-range=:500
+          # Show contents of README
+          readme="$(find "$dir" -maxdepth 1 -type f -iname "*readme*" -print -quit)"
+          if [[ -n "$readme" ]]; then
+            if command -v bat >/dev/null 2>&1; then
+              bat "$readme" --color=always --style=plain --line-range=:500
+            else
+              cat "$readme"
+            fi
           else
-            cat "$readme"
-          fi
-        else
-          # Show directory contents when no README
-          # Prefer eza over ls if available
-          if command -v eza >/dev/null 2>&1; then
+            # Show directory contents when no README
+            # Prefer eza over ls if available
+            if command -v eza >/dev/null 2>&1; then
               eza "$dir" --icons=always -1 --group-directories-first --color=always | head -n 200
-          else
-              ls -R -1 2>&1 | head -n 200
+            else
+              ls -R -1 "$dir" 2>&1 | head -n 200
+            fi
           fi
-        fi
-  ' | awk '{gsub(/[()]/,"",$3); $3=$3"/"; print $3$1; exit}')
+        '
+)
 
 if [[ -n "$folder" ]]; then
   echo "$DEV_FOLDER/$folder"
