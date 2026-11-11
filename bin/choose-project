@@ -130,7 +130,7 @@ main_language() {
     ;;
   esac
 
-  printf '\033[%sm%s\033[0m\t%s' "$color" "$icon"
+  printf '\033[%sm%s\033[0m\t%s' "$color" "$icon" "$best"
 }
 
 check_dir() {
@@ -165,14 +165,16 @@ check_dir() {
     cd "$dir" >/dev/null 2>&1 || continue
 
     if [ "$repo_found" -eq 1 ]; then
-      language=$(main_language "$PWD")
+      language_info=$(main_language "$PWD")
+      language=${language_info%%$'\t'*}
+      language_name=${language_info#*$'\t'}
       branch=$(git branch --show-current 2>/dev/null || true)
       branchtext=${branch:-detached}
       branchtext="[$branchtext]"
       tagtext=${tag:+("$tag")}
 
-      printf '%s %s \033[90m %s \033[0m\033[38;2;%s;%s;%sm%s\033[0m\t%s\n' \
-        "$language" "${dir%/}" "$branchtext" "$r" "$g" "$b" "$tagtext" \
+      printf '%s %s \033[2m%s\033[0m \033[90m%s\033[0m \033[38;2;%s;%s;%sm%s\033[0m\t%s\n' \
+        "$language" "${dir%/}" "$language_name" "$branchtext" "$r" "$g" "$b" "$tagtext" \
         "${PWD#"$DEV_FOLDER"/}"
 
       cd .. >/dev/null
