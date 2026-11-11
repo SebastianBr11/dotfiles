@@ -1,4 +1,4 @@
-min_version = "2026.8.11" # Need auto_update setting
+min_version = "2026.10.18" # Need mise lsp
 
 [settings]
 dotfiles.root = "~/.dotfiles"

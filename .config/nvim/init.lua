@@ -25,6 +25,9 @@ Config.lsp_servers_table = {
   vue_ls = "vue_ls",
   yamlls = "yamlls",
 }
+Config.other_lsp_servers_table = {
+  mise = "mise",
+}
 Config.formatters_table = {
   oxfmt = "oxfmt",
   prettierd = "prettierd",

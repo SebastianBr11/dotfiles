@@ -5,6 +5,7 @@ vim.pack.add({
   "https://github.com/b0o/SchemaStore.nvim",
 })
 
+vim.lsp.enable(vim.tbl_values(Config.other_lsp_servers_table))
 require("mason-lspconfig").setup({
   ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
   automatic_enable = { exclude = { "tsgo" } }, -- automatically run vim.lsp.enable() for all servers that are installed via Mason
