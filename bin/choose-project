@@ -77,7 +77,8 @@ main_language() {
     fi
   done
 
-  local color=
+  local color="32"
+  local icon=""
   case "$best" in
   javascript)
     icon=''
