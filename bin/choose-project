@@ -62,11 +62,7 @@ main_language() {
     tex | latex) counts[latex]=$((${counts[latex]:-0} + 1)) ;;
     sh | bash) counts[bash]=$((${counts[bash]:-0} + 1)) ;;
     esac
-  done < <(
-    find "$dir" \
-      \( -name .git -o -name node_modules -o -name vendor -o -name target \) -prune \
-      -o -type f -print0
-  )
+  done < <(git -C "$dir" ls-files -z)
 
   local best= max=0 count
   for ext in javascript typescript rust python java c ada prolog lisp typst latex bash; do
@@ -145,13 +141,6 @@ check_dir() {
     parent_dirs="${parent_dirs%/}"
 
     tag="$parent_dirs"
-    h=$(tag_hue "$tag")
-
-    rgb="$(hsv_to_rgb "$h" 0.65 0.85)" # "R,G,B"
-    r="${rgb%%,*}"
-    tmp="${rgb#*,}"
-    g="${tmp%%,*}"
-    b="${tmp#*,}"
 
     # detect repo (handles both .git dir and gitdir file for worktrees/submodules)
     if [ -e "$dir/.git" ]; then
@@ -174,6 +163,14 @@ check_dir() {
       branchtext="[$branchtext]"
       tagtext=${tag:+("$tag")}
 
+      h=$(tag_hue "$tag")
+
+      rgb="$(hsv_to_rgb "$h" 0.65 0.85)" # "R,G,B"
+      r="${rgb%%,*}"
+      tmp="${rgb#*,}"
+      g="${tmp%%,*}"
+      b="${tmp#*,}"
+
       remote_icon=''
       if [[ -n "$(git remote)" ]]; then
         remote_icon=''
@@ -191,6 +188,12 @@ check_dir() {
     cd .. >/dev/null
   done
 }
+
+if [[ "${1:-}" == "--bench" ]]; then
+  TIMEFORMAT='scan: %3R seconds'
+  time check_dir >/dev/null
+  exit
+fi
 
 folder=$(
   check_dir |
