@@ -13,6 +13,7 @@ Config.lsp_servers_table = {
   fish_lsp = "fish_lsp",
   html = "html",
   jsonls = "jsonls",
+  ltex_plus = "ltex_plus",
   lua_ls = "lua_ls",
   rumdl = "rumdl",
   stylua = "stylua",
