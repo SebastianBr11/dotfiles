@@ -6,15 +6,15 @@
       "version": "2.0.0 - 3.0.0"
     },
     "NeoJJ": {
-      "rev": "01d2fa7a31d1f127e7125fbca38f124d39595e86",
+      "rev": "d84589a265c44b5183887a43a456fe14550c0b56",
       "src": "https://github.com/NicholasZolton/NeoJJ"
     },
     "SchemaStore.nvim": {
-      "rev": "b4a92475bb6928810b66a0dd2fd86bea44089aba",
+      "rev": "92e7b3b2dbd1505fcbcb20f1fdd987b35e9cd34b",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "auto-session": {
-      "rev": "c8e6139a2e52a38101fecaba6014d7dd75489044",
+      "rev": "02a5588f677970a9bc784115c62bef9e5855499b",
       "src": "https://github.com/rmagatti/auto-session"
     },
     "blink.cmp": {
@@ -23,7 +23,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "codediff.nvim": {
-      "rev": "ae8d28896184d4a02ed590da9c3063ba50389b43",
+      "rev": "09d9ebef2cc5a5c04db7a349cd6c61bdf84ecc8e",
       "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "colorful-menu.nvim": {
@@ -40,11 +40,11 @@
       "version": "'v0.10.5'"
     },
     "friendly-snippets": {
-      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "rev": "7a1c9f7897a4eb078b157a04c7af81e5869215b1",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
+      "rev": "ef707fb93301a9b856f36eae4c8f56f5b988a794",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "guess-indent.nvim": {
@@ -52,7 +52,7 @@
       "src": "https://github.com/NMAC427/guess-indent.nvim"
     },
     "haunt.nvim": {
-      "rev": "c973175dda88236ecda342fd3654b5dc4f6b7764",
+      "rev": "a614d90be50b49dfe18aac2f3c2394c69feefd01",
       "src": "https://github.com/TheNoeTrevino/haunt.nvim"
     },
     "kanagawa.nvim": {
@@ -60,7 +60,7 @@
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "40276c4df7e6bdce6801d6c035c6227f9115a855",
+      "rev": "97ccf96bb2e7adb5f82975068bd4c7307d2afa8a",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer.nvim": {
@@ -72,15 +72,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "1098976ddda3cf00f50c1dda5eef10ccf463d9eb",
+      "rev": "f9ac12d7cbd2563cfc2cce9a8152fc8df2ad0d6f",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
-      "rev": "5adc81b26232954cd7a90f158aa7844c18fc3165",
+      "rev": "aa99b440b266bcf7e03399f149ed46f981555fa3",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-autopairs": {
-      "rev": "430522f95fe4fb7c511ec64f8c1a90cc6a66c05c",
+      "rev": "3172f40c16563db871a58f20d205c710ad782311",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-eslint": {
@@ -92,7 +92,7 @@
       "src": "https://github.com/chrisgrieser/nvim-lsp-endhints"
     },
     "nvim-lspconfig": {
-      "rev": "684cb45c2faa24ce463b4fe9aaf011bfe1e0fb26",
+      "rev": "443d92c6bea761ab54cdde46fb197a2b4d614bdd",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-origami": {
@@ -100,15 +100,15 @@
       "src": "https://github.com/chrisgrieser/nvim-origami"
     },
     "nvim-treesitter": {
-      "rev": "8b98b4470eb326f1c7b50dae79f8c963568e5720",
+      "rev": "19bdfc04f40ed2ccb3340591d125f759b0406875",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-context": {
-      "rev": "f3061339b8eaf9fda873600bc425b8d2d8502533",
+      "rev": "8decd73460d26ef0a0befb745d022dd1fc2c38b8",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "nvim-ts-autotag": {
-      "rev": "88c1453db4ba7dd24131086fe51fdf74e587d275",
+      "rev": "d7220b55e16ed3c04e88086256def5d282429493",
       "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "nvim_context_vt": {
@@ -116,7 +116,7 @@
       "src": "https://github.com/andersevenrud/nvim_context_vt"
     },
     "oil.nvim": {
-      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
+      "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "overseer.nvim": {
@@ -136,7 +136,7 @@
       "src": "https://github.com/folke/snacks.nvim"
     },
     "tiny-cmdline.nvim": {
-      "rev": "e247d9ee4c980734f8f8bf616d31e0ab7c27485d",
+      "rev": "ac9c6557c66da6308eb523643df8778f3cbe652f",
       "src": "https://github.com/rachartier/tiny-cmdline.nvim"
     },
     "todo-comments.nvim": {
