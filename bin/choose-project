@@ -41,6 +41,60 @@ hsv_to_rgb() {
   }'
 }
 
+main_language() {
+  local dir="$1" file ext
+  declare -A counts=()
+
+  while IFS= read -r -d '' file; do
+    ext="${file##*.}"
+    ext="${ext,,}"
+    case "$ext" in
+    js | mjs | cjs | jsx) counts[javascript]=$((${counts[javascript]:-0} + 1)) ;;
+    ts | mts | cts | tsx) counts[typescript]=$((${counts[typescript]:-0} + 1)) ;;
+    rs) counts[rust]=$((${counts[rust]:-0} + 1)) ;;
+    py | pyw) counts[python]=$((${counts[python]:-0} + 1)) ;;
+    java) counts[java]=$((${counts[java]:-0} + 1)) ;;
+    c | h) counts[c]=$((${counts[c]:-0} + 1)) ;;
+    adb | ads) counts[ada]=$((${counts[ada]:-0} + 1)) ;;
+    pl | pro) counts[prolog]=$((${counts[prolog]:-0} + 1)) ;;
+    lisp | lsp | cl | el) counts[lisp]=$((${counts[lisp]:-0} + 1)) ;;
+    typ) counts[typst]=$((${counts[typst]:-0} + 1)) ;;
+    tex | latex) counts[latex]=$((${counts[latex]:-0} + 1)) ;;
+    sh | bash) counts[bash]=$((${counts[bash]:-0} + 1)) ;;
+    esac
+  done < <(
+    find "$dir" \
+      \( -name .git -o -name node_modules -o -name vendor -o -name target \) -prune \
+      -o -type f -print0
+  )
+
+  local best= max=0 count
+  for ext in javascript typescript rust python java c ada prolog lisp typst latex bash; do
+    count=${counts[$ext]:-0}
+    if ((count > max)); then
+      max=$count
+      best="$ext"
+    fi
+  done
+
+  case "$best" in
+  javascript) icon='' ;;
+  typescript) icon='' ;;
+  rust) icon='󱘗' ;;
+  python) icon='' ;;
+  java) icon='' ;;
+  c) icon='' ;;
+  ada) icon='' ;;
+  prolog) icon='' ;;
+  lisp) icon='' ;;
+  typst) icon='' ;;
+  latex) icon='' ;;
+  bash) icon='' ;;
+  esac
+
+  printf '%s' "$icon"
+}
+
 check_dir() {
   # parent_dirs is shown kind of like a tag
   local dir repo_found parent_dirs
@@ -73,13 +127,14 @@ check_dir() {
     cd "$dir" >/dev/null 2>&1 || continue
 
     if [ "$repo_found" -eq 1 ]; then
+      language=$(main_language "$PWD")
       branch=$(git branch --show-current 2>/dev/null || true)
       branchtext=${branch:-detached}
       branchtext="[$branchtext]"
       tagtext=${tag:+("$tag")}
 
-      printf '%s \033[90m %s \033[0m\033[38;2;%s;%s;%sm%s\033[0m\t%s\n' \
-        "${dir%/}" "$branchtext" "$r" "$g" "$b" "$tagtext" \
+      printf '%s %s \033[90m %s \033[0m\033[38;2;%s;%s;%sm%s\033[0m\t%s\n' \
+        "$language" "${dir%/}" "$branchtext" "$r" "$g" "$b" "$tagtext" \
         "${PWD#"$DEV_FOLDER"/}"
 
       cd .. >/dev/null
