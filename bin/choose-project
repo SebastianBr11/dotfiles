@@ -77,22 +77,59 @@ main_language() {
     fi
   done
 
+  local color=
   case "$best" in
-  javascript) icon='' ;;
-  typescript) icon='' ;;
-  rust) icon='󱘗' ;;
-  python) icon='' ;;
-  java) icon='' ;;
-  c) icon='' ;;
-  ada) icon='' ;;
-  prolog) icon='' ;;
-  lisp) icon='' ;;
-  typst) icon='' ;;
-  latex) icon='' ;;
-  bash) icon='' ;;
+  javascript)
+    icon=''
+    color='36'
+    ;;
+  typescript)
+    icon=''
+    color='34'
+    ;;
+  rust)
+    icon='󱘗'
+    color='31'
+    ;;
+  python)
+    icon=''
+    color='33'
+    ;;
+  java)
+    icon=''
+    color='31'
+    ;;
+  c)
+    icon=''
+    color='34'
+    ;;
+  ada)
+    icon=''
+    color='35'
+    ;;
+  prolog)
+    icon=''
+    color='32'
+    ;;
+  lisp)
+    icon=''
+    color='35'
+    ;;
+  typst)
+    icon=''
+    color='36'
+    ;;
+  latex)
+    icon=''
+    color='34'
+    ;;
+  bash)
+    icon=''
+    color='32'
+    ;;
   esac
 
-  printf '%s' "$icon"
+  printf '\033[%sm%s\033[0m\t%s' "$color" "$icon"
 }
 
 check_dir() {
